@@ -33,7 +33,7 @@ extension Scene: TargetScene {
             listVC.bind(to: NodesViewModel())
             return .root(listVC)
         case let .detail(viewModel):
-            var nodeVC = NodeViewController()
+            var nodeVC = NodeViewController.initFromNib()
             nodeVC.bind(to: viewModel)
             return .push(nodeVC)
         }

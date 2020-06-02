@@ -13,77 +13,37 @@
 		3E0693CB2482060B00CD9C7B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E0693CA2482060B00CD9C7B /* Assets.xcassets */; };
 		3E0693CE2482060B00CD9C7B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E0693CC2482060B00CD9C7B /* LaunchScreen.storyboard */; };
 		3E0693D92482060B00CD9C7B /* MarkNodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0693D82482060B00CD9C7B /* MarkNodeTests.swift */; };
-		3E0693E42482060B00CD9C7B /* MarkNodeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0693E32482060B00CD9C7B /* MarkNodeUITests.swift */; };
 		3E06940124820A9900CD9C7B /* libMMLuaBridge.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E06940024820A9900CD9C7B /* libMMLuaBridge.a */; };
 		3E06940324820A9900CD9C7B /* libSFFoundation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E06940224820A9900CD9C7B /* libSFFoundation.a */; };
 		3E06940524820A9900CD9C7B /* libSFiOSKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E06940424820A9900CD9C7B /* libSFiOSKit.a */; };
 		3E06940624820A9900CD9C7B /* libTSMarkNode.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E0693FA248206A000CD9C7B /* libTSMarkNode.a */; };
 		3E06940824820B9900CD9C7B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E06940724820B9900CD9C7B /* MapKit.framework */; };
 		3E06940B24820E1D00CD9C7B /* demo.md in Resources */ = {isa = PBXBuildFile; fileRef = 3E06940A24820E1C00CD9C7B /* demo.md */; };
-		3E06940C24820E1D00CD9C7B /* demo.md in Resources */ = {isa = PBXBuildFile; fileRef = 3E06940A24820E1C00CD9C7B /* demo.md */; };
-		3E06940D24820E1D00CD9C7B /* demo.md in Resources */ = {isa = PBXBuildFile; fileRef = 3E06940A24820E1C00CD9C7B /* demo.md */; };
 		3E06941324820E3A00CD9C7B /* dkjson.lua in Resources */ = {isa = PBXBuildFile; fileRef = 3E06941024820E3A00CD9C7B /* dkjson.lua */; };
-		3E06941424820E3A00CD9C7B /* dkjson.lua in Resources */ = {isa = PBXBuildFile; fileRef = 3E06941024820E3A00CD9C7B /* dkjson.lua */; };
-		3E06941524820E3A00CD9C7B /* dkjson.lua in Resources */ = {isa = PBXBuildFile; fileRef = 3E06941024820E3A00CD9C7B /* dkjson.lua */; };
 		3E06941624820E3A00CD9C7B /* luaservice.lua in Resources */ = {isa = PBXBuildFile; fileRef = 3E06941124820E3A00CD9C7B /* luaservice.lua */; };
-		3E06941724820E3A00CD9C7B /* luaservice.lua in Resources */ = {isa = PBXBuildFile; fileRef = 3E06941124820E3A00CD9C7B /* luaservice.lua */; };
-		3E06941824820E3A00CD9C7B /* luaservice.lua in Resources */ = {isa = PBXBuildFile; fileRef = 3E06941124820E3A00CD9C7B /* luaservice.lua */; };
 		3E06941924820E3A00CD9C7B /* stringext.lua in Resources */ = {isa = PBXBuildFile; fileRef = 3E06941224820E3A00CD9C7B /* stringext.lua */; };
-		3E06941A24820E3A00CD9C7B /* stringext.lua in Resources */ = {isa = PBXBuildFile; fileRef = 3E06941224820E3A00CD9C7B /* stringext.lua */; };
-		3E06941B24820E3A00CD9C7B /* stringext.lua in Resources */ = {isa = PBXBuildFile; fileRef = 3E06941224820E3A00CD9C7B /* stringext.lua */; };
 		3E06941D24820E4400CD9C7B /* theme.lua in Resources */ = {isa = PBXBuildFile; fileRef = 3E06941C24820E4400CD9C7B /* theme.lua */; };
-		3E06941E24820E4400CD9C7B /* theme.lua in Resources */ = {isa = PBXBuildFile; fileRef = 3E06941C24820E4400CD9C7B /* theme.lua */; };
-		3E06941F24820E4400CD9C7B /* theme.lua in Resources */ = {isa = PBXBuildFile; fileRef = 3E06941C24820E4400CD9C7B /* theme.lua */; };
 		3E0694212482125B00CD9C7B /* NodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0694202482125B00CD9C7B /* NodeViewController.swift */; };
-		3E0694222482125B00CD9C7B /* NodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0694202482125B00CD9C7B /* NodeViewController.swift */; };
-		3E0694232482125B00CD9C7B /* NodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0694202482125B00CD9C7B /* NodeViewController.swift */; };
 		3E06944624821B6000CD9C7B /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E06943724821B5500CD9C7B /* RxCocoa.framework */; };
 		3E06944724821B6000CD9C7B /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E06943524821B5500CD9C7B /* RxSwift.framework */; };
 		3E06944F24821C8900CD9C7B /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E06944E24821C8900CD9C7B /* NavigationController.swift */; };
-		3E06945024821C8900CD9C7B /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E06944E24821C8900CD9C7B /* NavigationController.swift */; };
-		3E06945124821C8900CD9C7B /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E06944E24821C8900CD9C7B /* NavigationController.swift */; };
 		3E06945324821CAF00CD9C7B /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E06945224821CAF00CD9C7B /* BaseViewController.swift */; };
-		3E06945424821CAF00CD9C7B /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E06945224821CAF00CD9C7B /* BaseViewController.swift */; };
-		3E06945524821CAF00CD9C7B /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E06945224821CAF00CD9C7B /* BaseViewController.swift */; };
 		3E06945824821E3900CD9C7B /* NodesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E06945724821E3900CD9C7B /* NodesViewModel.swift */; };
-		3E06945924821E3900CD9C7B /* NodesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E06945724821E3900CD9C7B /* NodesViewModel.swift */; };
-		3E06945A24821E3900CD9C7B /* NodesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E06945724821E3900CD9C7B /* NodesViewModel.swift */; };
 		3E06945D24821E6B00CD9C7B /* NodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E06945C24821E6B00CD9C7B /* NodeCell.swift */; };
-		3E06945E24821E6B00CD9C7B /* NodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E06945C24821E6B00CD9C7B /* NodeCell.swift */; };
-		3E06945F24821E6B00CD9C7B /* NodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E06945C24821E6B00CD9C7B /* NodeCell.swift */; };
 		3E06946124821E8100CD9C7B /* NodeCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E06946024821E8100CD9C7B /* NodeCellViewModel.swift */; };
-		3E06946224821E8100CD9C7B /* NodeCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E06946024821E8100CD9C7B /* NodeCellViewModel.swift */; };
-		3E06946324821E8100CD9C7B /* NodeCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E06946024821E8100CD9C7B /* NodeCellViewModel.swift */; };
 		3E06946524821F5B00CD9C7B /* NodeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E06946424821F5B00CD9C7B /* NodeCell.xib */; };
-		3E06946624821F5B00CD9C7B /* NodeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E06946424821F5B00CD9C7B /* NodeCell.xib */; };
-		3E06946724821F5B00CD9C7B /* NodeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E06946424821F5B00CD9C7B /* NodeCell.xib */; };
 		3E06946D2482214600CD9C7B /* RxExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E06946C2482214600CD9C7B /* RxExt.swift */; };
-		3E06946E2482214600CD9C7B /* RxExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E06946C2482214600CD9C7B /* RxExt.swift */; };
-		3E06946F2482214600CD9C7B /* RxExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E06946C2482214600CD9C7B /* RxExt.swift */; };
 		3E069471248221B700CD9C7B /* BindableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E069470248221B700CD9C7B /* BindableType.swift */; };
-		3E069472248221B700CD9C7B /* BindableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E069470248221B700CD9C7B /* BindableType.swift */; };
-		3E069473248221B700CD9C7B /* BindableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E069470248221B700CD9C7B /* BindableType.swift */; };
 		3E069476248224A300CD9C7B /* NodeServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E069475248224A300CD9C7B /* NodeServiceType.swift */; };
-		3E069477248224A300CD9C7B /* NodeServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E069475248224A300CD9C7B /* NodeServiceType.swift */; };
-		3E069478248224A300CD9C7B /* NodeServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E069475248224A300CD9C7B /* NodeServiceType.swift */; };
 		3E06947F2482256500CD9C7B /* NodeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E06947E2482256500CD9C7B /* NodeService.swift */; };
-		3E0694802482256500CD9C7B /* NodeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E06947E2482256500CD9C7B /* NodeService.swift */; };
-		3E0694812482256500CD9C7B /* NodeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E06947E2482256500CD9C7B /* NodeService.swift */; };
 		3E06948324824FA800CD9C7B /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E06948224824FA800CD9C7B /* Node.swift */; };
-		3E06948424824FA800CD9C7B /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E06948224824FA800CD9C7B /* Node.swift */; };
-		3E06948524824FA800CD9C7B /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E06948224824FA800CD9C7B /* Node.swift */; };
 		3E069499248282BA00CD9C7B /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E069498248282BA00CD9C7B /* Scene.swift */; };
-		3E06949A248282BA00CD9C7B /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E069498248282BA00CD9C7B /* Scene.swift */; };
-		3E06949B248282BA00CD9C7B /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E069498248282BA00CD9C7B /* Scene.swift */; };
 		3E06949D2482830700CD9C7B /* SceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E06949C2482830600CD9C7B /* SceneCoordinator.swift */; };
-		3E06949E2482830700CD9C7B /* SceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E06949C2482830600CD9C7B /* SceneCoordinator.swift */; };
-		3E06949F2482830700CD9C7B /* SceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E06949C2482830600CD9C7B /* SceneCoordinator.swift */; };
 		3E0694A1248283A100CD9C7B /* NodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0694A0248283A100CD9C7B /* NodeViewModel.swift */; };
-		3E0694A2248283A100CD9C7B /* NodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0694A0248283A100CD9C7B /* NodeViewModel.swift */; };
-		3E0694A3248283A100CD9C7B /* NodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0694A0248283A100CD9C7B /* NodeViewModel.swift */; };
 		3E0694A5248290DE00CD9C7B /* NodesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E0694A4248290DE00CD9C7B /* NodesViewController.xib */; };
-		3E0694A6248290DE00CD9C7B /* NodesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E0694A4248290DE00CD9C7B /* NodesViewController.xib */; };
-		3E0694A7248290DE00CD9C7B /* NodesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E0694A4248290DE00CD9C7B /* NodesViewController.xib */; };
+		3E1ED2B92483896100FD2643 /* NodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E1ED2B82483896100FD2643 /* NodeViewController.xib */; };
+		3E1ED2D9248518F600FD2643 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1ED2D8248518F600FD2643 /* String+Ext.swift */; };
+		3E1ED2F42485E4B500FD2643 /* MarkNodeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0693E32482060B00CD9C7B /* MarkNodeUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -222,6 +182,14 @@
 		3E06949C2482830600CD9C7B /* SceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneCoordinator.swift; sourceTree = "<group>"; };
 		3E0694A0248283A100CD9C7B /* NodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeViewModel.swift; sourceTree = "<group>"; };
 		3E0694A4248290DE00CD9C7B /* NodesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NodesViewController.xib; sourceTree = "<group>"; };
+		3E1ED2B82483896100FD2643 /* NodeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NodeViewController.xib; sourceTree = "<group>"; };
+		3E1ED2D8248518F600FD2643 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
+		3E1ED2DC2485556900FD2643 /* libMMLuaBridge.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libMMLuaBridge.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E1ED2DE2485556900FD2643 /* libSFFoundation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libSFFoundation.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E1ED2E02485556900FD2643 /* libSFiOSKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libSFiOSKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E1ED2E52485561E00FD2643 /* libMMLuaBridge.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libMMLuaBridge.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E1ED2E72485561E00FD2643 /* libSFFoundation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libSFFoundation.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E1ED2E92485561E00FD2643 /* libSFiOSKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libSFiOSKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -336,6 +304,12 @@
 		3E0693FF24820A9900CD9C7B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3E1ED2E52485561E00FD2643 /* libMMLuaBridge.a */,
+				3E1ED2E72485561E00FD2643 /* libSFFoundation.a */,
+				3E1ED2E92485561E00FD2643 /* libSFiOSKit.a */,
+				3E1ED2DC2485556900FD2643 /* libMMLuaBridge.a */,
+				3E1ED2DE2485556900FD2643 /* libSFFoundation.a */,
+				3E1ED2E02485556900FD2643 /* libSFiOSKit.a */,
 				3E06940724820B9900CD9C7B /* MapKit.framework */,
 				3E06940024820A9900CD9C7B /* libMMLuaBridge.a */,
 				3E06940224820A9900CD9C7B /* libSFFoundation.a */,
@@ -402,6 +376,7 @@
 			children = (
 				3E0694202482125B00CD9C7B /* NodeViewController.swift */,
 				3E0694A0248283A100CD9C7B /* NodeViewModel.swift */,
+				3E1ED2B82483896100FD2643 /* NodeViewController.xib */,
 			);
 			name = Detail;
 			sourceTree = "<group>";
@@ -413,6 +388,7 @@
 				3E06944E24821C8900CD9C7B /* NavigationController.swift */,
 				3E06945224821CAF00CD9C7B /* BaseViewController.swift */,
 				3E069470248221B700CD9C7B /* BindableType.swift */,
+				3E1ED2D8248518F600FD2643 /* String+Ext.swift */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -662,6 +638,7 @@
 				3E06941324820E3A00CD9C7B /* dkjson.lua in Resources */,
 				3E06941624820E3A00CD9C7B /* luaservice.lua in Resources */,
 				3E0694A5248290DE00CD9C7B /* NodesViewController.xib in Resources */,
+				3E1ED2B92483896100FD2643 /* NodeViewController.xib in Resources */,
 				3E0693CE2482060B00CD9C7B /* LaunchScreen.storyboard in Resources */,
 				3E0693CB2482060B00CD9C7B /* Assets.xcassets in Resources */,
 				3E06941D24820E4400CD9C7B /* theme.lua in Resources */,
@@ -676,13 +653,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3E06941E24820E4400CD9C7B /* theme.lua in Resources */,
-				3E06940C24820E1D00CD9C7B /* demo.md in Resources */,
-				3E06941A24820E3A00CD9C7B /* stringext.lua in Resources */,
-				3E0694A6248290DE00CD9C7B /* NodesViewController.xib in Resources */,
-				3E06941724820E3A00CD9C7B /* luaservice.lua in Resources */,
-				3E06941424820E3A00CD9C7B /* dkjson.lua in Resources */,
-				3E06946624821F5B00CD9C7B /* NodeCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -690,13 +660,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3E06941F24820E4400CD9C7B /* theme.lua in Resources */,
-				3E06940D24820E1D00CD9C7B /* demo.md in Resources */,
-				3E06941B24820E3A00CD9C7B /* stringext.lua in Resources */,
-				3E0694A7248290DE00CD9C7B /* NodesViewController.xib in Resources */,
-				3E06941824820E3A00CD9C7B /* luaservice.lua in Resources */,
-				3E06941524820E3A00CD9C7B /* dkjson.lua in Resources */,
-				3E06946724821F5B00CD9C7B /* NodeCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -710,6 +673,7 @@
 				3E0694A1248283A100CD9C7B /* NodeViewModel.swift in Sources */,
 				3E06945824821E3900CD9C7B /* NodesViewModel.swift in Sources */,
 				3E069476248224A300CD9C7B /* NodeServiceType.swift in Sources */,
+				3E1ED2D9248518F600FD2643 /* String+Ext.swift in Sources */,
 				3E06945324821CAF00CD9C7B /* BaseViewController.swift in Sources */,
 				3E06947F2482256500CD9C7B /* NodeService.swift in Sources */,
 				3E069499248282BA00CD9C7B /* Scene.swift in Sources */,
@@ -730,20 +694,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3E0694222482125B00CD9C7B /* NodeViewController.swift in Sources */,
-				3E0694A2248283A100CD9C7B /* NodeViewModel.swift in Sources */,
-				3E06949E2482830700CD9C7B /* SceneCoordinator.swift in Sources */,
-				3E069472248221B700CD9C7B /* BindableType.swift in Sources */,
-				3E06946E2482214600CD9C7B /* RxExt.swift in Sources */,
-				3E06948424824FA800CD9C7B /* Node.swift in Sources */,
-				3E06949A248282BA00CD9C7B /* Scene.swift in Sources */,
-				3E069477248224A300CD9C7B /* NodeServiceType.swift in Sources */,
-				3E06945424821CAF00CD9C7B /* BaseViewController.swift in Sources */,
-				3E0694802482256500CD9C7B /* NodeService.swift in Sources */,
-				3E06945024821C8900CD9C7B /* NavigationController.swift in Sources */,
-				3E06946224821E8100CD9C7B /* NodeCellViewModel.swift in Sources */,
-				3E06945E24821E6B00CD9C7B /* NodeCell.swift in Sources */,
-				3E06945924821E3900CD9C7B /* NodesViewModel.swift in Sources */,
 				3E0693D92482060B00CD9C7B /* MarkNodeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -752,21 +702,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3E0694232482125B00CD9C7B /* NodeViewController.swift in Sources */,
-				3E0694A3248283A100CD9C7B /* NodeViewModel.swift in Sources */,
-				3E06949F2482830700CD9C7B /* SceneCoordinator.swift in Sources */,
-				3E069473248221B700CD9C7B /* BindableType.swift in Sources */,
-				3E06946F2482214600CD9C7B /* RxExt.swift in Sources */,
-				3E06948524824FA800CD9C7B /* Node.swift in Sources */,
-				3E06949B248282BA00CD9C7B /* Scene.swift in Sources */,
-				3E069478248224A300CD9C7B /* NodeServiceType.swift in Sources */,
-				3E06945524821CAF00CD9C7B /* BaseViewController.swift in Sources */,
-				3E0694812482256500CD9C7B /* NodeService.swift in Sources */,
-				3E06945124821C8900CD9C7B /* NavigationController.swift in Sources */,
-				3E06946324821E8100CD9C7B /* NodeCellViewModel.swift in Sources */,
-				3E06945F24821E6B00CD9C7B /* NodeCell.swift in Sources */,
-				3E06945A24821E3900CD9C7B /* NodesViewModel.swift in Sources */,
-				3E0693E42482060B00CD9C7B /* MarkNodeUITests.swift in Sources */,
+				3E1ED2F42485E4B500FD2643 /* MarkNodeUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -980,14 +916,22 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5HNESHK23T;
+				HEADER_SEARCH_PATHS = (
+					../TSMarkNode,
+					../SFLibraries/SFiOSKit,
+					../SFLibraries/SFFoundation,
+					../MMLuaBridge,
+				);
 				INFOPLIST_FILE = MarkNodeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.chemagui.MarkNodeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MarkNode/MarkNode-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MarkNode.app/MarkNode";
@@ -1001,14 +945,22 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5HNESHK23T;
+				HEADER_SEARCH_PATHS = (
+					../TSMarkNode,
+					../SFLibraries/SFiOSKit,
+					../SFLibraries/SFFoundation,
+					../MMLuaBridge,
+				);
 				INFOPLIST_FILE = MarkNodeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.chemagui.MarkNodeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MarkNode/MarkNode-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MarkNode.app/MarkNode";
@@ -1021,6 +973,12 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5HNESHK23T;
+				HEADER_SEARCH_PATHS = (
+					../TSMarkNode,
+					../SFLibraries/SFiOSKit,
+					../SFLibraries/SFFoundation,
+					../MMLuaBridge,
+				);
 				INFOPLIST_FILE = MarkNodeUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1029,6 +987,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.chemagui.MarkNodeUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MarkNode/MarkNode-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = MarkNode;
@@ -1041,6 +1000,12 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5HNESHK23T;
+				HEADER_SEARCH_PATHS = (
+					../TSMarkNode,
+					../SFLibraries/SFiOSKit,
+					../SFLibraries/SFFoundation,
+					../MMLuaBridge,
+				);
 				INFOPLIST_FILE = MarkNodeUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1049,6 +1014,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.chemagui.MarkNodeUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MarkNode/MarkNode-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = MarkNode;

@@ -30,5 +30,20 @@ class MarkNodeTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
+    
+    func testStringFindMatching() {
+        var attr = "link-node=http://www.test.com/link.md\n"
+        var link = attr.findMatching(left: "link-node=", right: "\n")
+        XCTAssert(link! == "http://www.test.com/link.md", "mismatched")
+        attr = "link-node=http://www.test.com/link.md\nstyle=text-size: 18"
+        link = attr.findMatching(left: "link-node=", right: "\n")
+        XCTAssert(link! == "http://www.test.com/link.md", "mismatched")
+    }
+    
+    func testGetLastPathComponent() {
+        let attr = "http://www.test.com/link.md"
+        let lastPathComponent = attr.lastPathComponent()
+        XCTAssert(lastPathComponent == "link.md", "mismatched")
+    }
 
 }

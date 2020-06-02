@@ -16,11 +16,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        configureUIRegistry()
+        configureSceneCoordinator()
+        
+        return true
+    }
+    
+    func configureSceneCoordinator() {
         let sceneCoordinator = SceneCoordinator(window: window!)
         SceneCoordinator.shared = sceneCoordinator
         sceneCoordinator.transition(to: Scene.list)
+    }
+    
+    func configureUIRegistry() {
+        let registries = TSUIRegistries.shared()
         
-        return true
+        registries.add(TSMindViewStyleRegistry(name: "Default Style") {
+            return TSDefaultMindViewStyle.shared()
+        })
+        registries.addLayoutRegistry(TSLayouterRegistry(name: "Standard") { TSStandardLayouter() })
+        
+        let luaEngine = TSLuaEngine.fromMainBundle()
+        luaEngine.load(withMainFile: "theme.lua") { (success, error) in
+            if let error = error {
+                print("Error on initializing lua engine: \(error.localizedDescription)")
+                return
+            }
+            registries.add(TSMindViewStyleRegistry(name: "Simple Style") { TSScriptMindViewStyle(engine: luaEngine) } )
+            
+            if let layouterNames = TSScriptLayouter.layouterNames(with: luaEngine) {
+                layouterNames.forEach { layouterName in
+                    print("Adding script layouter: \(layouterName)")
+                    registries.addLayoutRegistry(TSLayouterRegistry(name: layouterName) { TSScriptLayouter(name: layouterName, engine: luaEngine) })
+                }
+            }
+        }
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
