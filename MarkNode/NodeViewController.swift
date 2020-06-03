@@ -15,10 +15,11 @@ class NodeViewController: BaseViewController, UIScrollViewDelegate, TSMindViewDe
     @IBOutlet var deleteButton: UIButton!
     @IBOutlet var addButton: UIButton!
     @IBOutlet var addToButton: UIButton!
+    @IBOutlet var displaySelectorView: DisplaySelectorView!
     
-    var scrollView: TSScrollView!
-    var centerLayout: UIView!
-    var mindView: TSMindView!
+    @IBOutlet var scrollView: TSScrollView!
+    @IBOutlet var centerLayout: UIView!
+    @IBOutlet var mindView: TSMindView!
     
     var viewModel: NodeViewModel!
     
@@ -28,13 +29,13 @@ class NodeViewController: BaseViewController, UIScrollViewDelegate, TSMindViewDe
         configureCenterLayout()
         configureMindView()
         configureOperationButtonView()
+        configureBarButtons()
     }
     
     func bindViewModel() {
         let output = viewModel.output
         let input = viewModel.input
         
-        output.loading.bind { [weak self] loading in self?.sf_setWaiting(loading)}.disposed(by: disposeBag)
         output.node
             .bind { [weak self] node in
                 self?.mindView.setNode(node, animated: true)
@@ -43,6 +44,9 @@ class NodeViewController: BaseViewController, UIScrollViewDelegate, TSMindViewDe
         output.title
             .bind(to: self.navigationItem.rx.title)
             .disposed(by: disposeBag)
+        output.loading
+            .bind { [weak self] loading in self?.sf_setLoading(loading)}
+            .disposed(by: disposeBag)
         output.errorMessage
             .bind { msg in
                 SFToast.toast(withText: msg, hideAfterSeconds: 2.0, identifier: "ID_errorMSG")
@@ -50,6 +54,19 @@ class NodeViewController: BaseViewController, UIScrollViewDelegate, TSMindViewDe
             .disposed(by: disposeBag)
         output.loadLinkedNode
             .flatMap { Observable<Node>.just(Node(title: $0.lastPathComponent(), storeType: .remote, path: $0)) }
+            .flatMap { node -> Observable<Node> in
+                return Observable.create({ observer -> Disposable in
+                    UIAlertView.sf_alert(withTitle: "Linked Node", message: "\(node.path)", completion: { (buttonIndex, buttonTitle) in
+                        if buttonIndex == 0 {
+                            observer.onCompleted()
+                            input.selectLastSelectedNodeAction.onNext(())
+                            return
+                        }
+                        observer.onNext(node)
+                    }, cancelButtonTitle: "Cancel", otherButtonTitleList: ["Open"])
+                    return Disposables.create {}
+                })
+            }
             .bind(to: input.loadNodeAction)
             .disposed(by: disposeBag)
         output.selectedNode
@@ -66,15 +83,50 @@ class NodeViewController: BaseViewController, UIScrollViewDelegate, TSMindViewDe
                 }
             }
             .disposed(by: disposeBag)
+        let getNodeFrame: (TSNode) -> Observable<CGRect> = { [weak self] node -> Observable<CGRect> in
+            guard let self = self, let selection = self.mindView.selection(for: node) else { return .empty() }
+            var frame = selection.frame
+            frame.origin.x += self.mindView.frame.origin.x
+            frame.origin.y += self.mindView.frame.origin.y
+            frame.origin.x *= self.scrollView.zoomScale
+            frame.origin.y *= self.scrollView.zoomScale
+            return .just(frame)
+        }
+        let scrollToShowNode: (CGRect) -> Void = { [weak self] frame in
+            guard let self = self else { return }
+            var contentOffset = self.scrollView.contentOffset
+            var contentOffsetChanged = false
+            let delta = CGPoint(x: 20, y: 20)
+            let scrollViewSize = self.scrollView.frame.size
+            
+            if !(frame.origin.x >= contentOffset.x && (frame.origin.x + (frame.size.width * self.scrollView.zoomScale) <= contentOffset.x + scrollViewSize.width)) {
+                contentOffsetChanged = true
+                if frame.origin.x < contentOffset.x {
+                    contentOffset.x = frame.origin.x - delta.x
+                } else {
+                    contentOffset.x = frame.origin.x + (frame.size.width * self.scrollView.zoomScale) + delta.x - scrollViewSize.width
+                }
+            }
+            if !(frame.origin.y >= contentOffset.y && (frame.origin.y + (frame.size.height * self.scrollView.zoomScale) <= contentOffset.y + scrollViewSize.height)) {
+                contentOffsetChanged = true
+                if frame.origin.y < contentOffset.y {
+                    contentOffset.y = frame.origin.y + delta.y
+                } else {
+                    contentOffset.y = frame.origin.y + (frame.size.height * self.scrollView.zoomScale) + delta.y - scrollViewSize.height
+                }
+            }
+            if contentOffsetChanged {
+                self.scrollView.setContentOffset(contentOffset, animated: true)
+            }
+        }
         output.selectedNode
             .flatMap { [weak self] node -> Observable<TSNode> in
                 if let node = node {
                     return .just(node)
                 }
-                if let this = self {
-                    if this.mindView.selectedNode != nil {
-                        this.mindView.selectedNode = nil
-                    }
+                guard let self = self else { return .empty() }
+                if self.mindView.selectedNode != nil {
+                    self.mindView.selectedNode = nil
                 }
                 return .empty()
             }
@@ -84,62 +136,40 @@ class NodeViewController: BaseViewController, UIScrollViewDelegate, TSMindViewDe
                 }
                 return .just(node)
             }
-            .flatMap { [weak self] node -> Observable<CGRect> in
-                guard let this = self else { return .empty() }
-                guard let selection = this.mindView.selection(for: node) else { return .empty() }
-                var frame = selection.frame
-                frame.origin.x += this.mindView.frame.origin.x
-                frame.origin.y += this.mindView.frame.origin.y
-                frame.origin.x *= this.scrollView.zoomScale
-                frame.origin.y *= this.scrollView.zoomScale
-                return .just(frame)
-            }
-            .bind { [weak self] frame in
-                guard let this = self else { return }
-                var contentOffset = this.scrollView.contentOffset
-                var contentOffsetChanged = false
-                let delta = CGPoint(x: 20, y: 20)
-                let scrollViewSize = this.scrollView.frame.size
-                
-                if !(frame.origin.x >= contentOffset.x && (frame.origin.x + frame.size.width <= contentOffset.x + scrollViewSize.width)) {
-                    contentOffsetChanged = true
-                    if frame.origin.x < contentOffset.x {
-                        contentOffset.x = frame.origin.x - delta.x
-                    } else {
-                        contentOffset.x = frame.origin.x + frame.size.width + delta.x - scrollViewSize.width
-                    }
-                }
-                if !(frame.origin.y >= contentOffset.y && (frame.origin.y + frame.size.height <= contentOffset.y + scrollViewSize.height)) {
-                    contentOffsetChanged = true
-                    if frame.origin.y < contentOffset.y {
-                        contentOffset.y = frame.origin.y + delta.y
-                    } else {
-                        contentOffset.y = frame.origin.y + frame.size.height + delta.y - scrollViewSize.height
-                    }
-                }
-                if contentOffsetChanged {
-                    this.scrollView.setContentOffset(contentOffset, animated: true)
-                }
-            }
+            .flatMap(getNodeFrame)
+            .bind(onNext: scrollToShowNode)
             .disposed(by: disposeBag)
         
         mindView.rx.itemSelected
             .flatMap { mindNodeView -> Observable<TSNode?> in
-                    guard let selectedNodeView = mindNodeView else { return .just(nil) }
-                    return .just(selectedNodeView.node!)
+                guard let selectedNodeView = mindNodeView else { return .just(nil) }
+                return .just(selectedNodeView.node!)
             }
             //.distinctUntilChanged()
             .bind(to: input.selectNodeAction)
             .disposed(by: disposeBag)
         
+        output.scrollToShowNode.flatMap(getNodeFrame).bind(onNext: scrollToShowNode).disposed(by: disposeBag)
+        output.scrollToShowNodeAtCenter
+            .flatMap(getNodeFrame)
+            .bind { [weak self] frame in
+                guard let self = self else { return }
+                let centerX = frame.origin.x + frame.size.width / 2
+                let centerY = frame.origin.y + frame.size.height / 2
+                let contentOffset = CGPoint(x: centerX - self.scrollView.frame.size.width / 2, y: centerY - self.scrollView.frame.size.height / 2)
+                
+                self.scrollView.setContentOffset(contentOffset, animated: false)
+            }
+            .disposed(by: disposeBag)
+        
         output.nodeSelectState
             .flatMap { [weak self] selectState -> Observable<CGRect> in
-                guard let this = self else { return .empty() }
-                var frame = this.operationButtonView.frame
+                guard let self = self else { return .empty() }
+                var frame = self.operationButtonView.frame
                 if selectState {
-                    frame.origin.y = this.view.frame.size.height - frame.size.height - 10
+                    frame.origin.y = self.view.frame.size.height - frame.size.height - 10
                 } else {
-                    frame.origin.y = this.view.frame.size.height
+                    frame.origin.y = self.view.frame.size.height
                 }
                 return .just(frame)
             }
@@ -159,16 +189,28 @@ class NodeViewController: BaseViewController, UIScrollViewDelegate, TSMindViewDe
         editButton.rx.tap
             .flatMap(selectedNodeSelector)
             .subscribe(onNext: { [weak self] node -> Void in
-                guard let this = self else { return }
-                this.mindView.setEditing(true, node: node)
+                guard let self = self else { return }
+                self.mindView.setEditing(true, node: node)
             })
             .disposed(by: disposeBag)
         deleteButton.rx.tap
             .flatMap(selectedNodeSelector)
+            .flatMap { node -> Observable<TSNode> in
+                return Observable<TSNode>.create({ (observer) -> Disposable in
+                    UIAlertView.sf_alert(withTitle: "\(node.title)", message: nil, completion: { (buttonIndex, buttonTitle) in
+                        if buttonIndex == 0 {
+                            observer.onCompleted()
+                            return
+                        }
+                        observer.onNext(node)
+                    }, cancelButtonTitle: "Cancel", otherButtonTitleList: ["Delete"])
+                    return Disposables.create {}
+                })
+            }
             .subscribe(onNext: { [weak self] node -> Void in
-                guard let this = self else { return }
+                guard let self = self else { return }
                 input.deleteNodeAction.onNext(node)
-                this.mindView.removeNode(node, animated: true)
+                self.mindView.removeNode(node, animated: true)
             })
             .disposed(by: disposeBag)
         addToButton.rx.tap
@@ -183,46 +225,113 @@ class NodeViewController: BaseViewController, UIScrollViewDelegate, TSMindViewDe
         mindView.rx.finishLayout
             .take(1)
             .flatMap { [weak self] Void -> Observable<CGPoint> in
-                guard let this = self else { return .empty() }
-                let contentSize = this.scrollView.contentSize
-                let frameSize = this.scrollView.frame.size
+                guard let self = self else { return .empty() }
+                let contentSize = self.scrollView.contentSize
+                let frameSize = self.scrollView.frame.size
                 return .just(CGPoint(x: (contentSize.width - frameSize.width) / 2, y: (contentSize.height - frameSize.height) / 2))
             }
             .bind(to: self.scrollView.rx.contentOffset)
             .disposed(by: disposeBag)
+        mindView.rx.didUpdateSize
+            .flatMap { size -> Observable<CGSize> in
+                if try output.loading.value() {
+                    return Observable.create { observer in
+                        DispatchQueue.main.async {
+                            //SFToast.toast(withText: "Resizing", hideAfterSeconds: 1.0, identifier: "ID_resizingMSG")
+                            observer.onNext(size)
+                            observer.onCompleted()
+                        }
+                        return Disposables.create{}
+                    }
+                }
+                return .just(size)
+            }
+            .flatMap { [weak self] size -> Observable<Void> in
+                guard let self = self else { return .empty() }
+                var frame = self.centerLayout.frame;
+                let containerSize = CGSize(width: size.width + 1000, height: size.height + 1000);
+                frame.size = containerSize;
+                self.centerLayout.frame = frame;
+                
+                frame = self.mindView.frame;
+                frame.size = CGSize(width: containerSize.width - 10, height: containerSize.height - 10);
+                self.mindView.frame = frame;
+                
+                self.scrollView.contentSize = containerSize;
+                
+                return .just(())
+            }
+            .bind(to: input.refreshAction)
+            .disposed(by: disposeBag)
+        
+        output.uiRegistries.bind { uiRegistries in
+            self.displaySelectorView.uiRegistries = uiRegistries
+        }.disposed(by: disposeBag)
+        
+        self.navigationItem.rightBarButtonItem!.rx.tap
+            .flatMap { [weak self] _ -> Observable<Bool> in
+                guard let self = self else { return .empty() }
+                return .just(self.displaySelectorView.isHidden)
+            }
+            .bind { [weak self] visible in
+                guard let self = self else { return }
+                if visible {
+                    self.displaySelectorView.isHidden = false
+                }
+                self.displaySelectorView.show(visible: visible, animated: true) {
+                    if !visible {
+                        self.displaySelectorView.isHidden = true
+                    }
+                }
+            }
+            .disposed(by: disposeBag)
+        output.style.bind(to: mindView.rx.style).disposed(by: disposeBag)
+        output.layouter.bind(to: mindView.rx.layouter).disposed(by: disposeBag)
+        self.displaySelectorView.rx.didClose.bind { [weak self] in
+            guard let self = self else { return }
+            self.displaySelectorView.show(visible: false, animated: true, completion: {
+                self.displaySelectorView.isHidden = true
+            })
+        }.disposed(by: disposeBag)
+        self.displaySelectorView.rx.didSelectStyle
+            .flatMap { styleRegistry -> Observable<TSMindViewStyle> in
+                .just(styleRegistry.create())
+            }
+            .bind(to: input.selectStyleAction)
+            .disposed(by: disposeBag)
+        self.displaySelectorView.rx.didSelectLayout
+            .flatMap { layouterRegistry -> Observable<TSLayouterProtocol> in
+                .just(layouterRegistry.create())
+            }
+            .bind(to: input.selectLayouterAction)
+            .disposed(by: disposeBag)
     }
     
     func configureScrollView() {
-        scrollView = TSScrollView(frame: self.view.bounds)
-        scrollView.autoresizingMask = UIView.AutoresizingMask(rawValue: UIView.AutoresizingMask.flexibleWidth.rawValue | UIView.AutoresizingMask.flexibleHeight.rawValue)
         scrollView.minimumZoomScale = 0.2
         scrollView.maximumZoomScale = 1.0
-        scrollView.alwaysBounceVertical = true
-        scrollView.alwaysBounceHorizontal = true
-        scrollView.backgroundColor = UIColor.white
-        scrollView.delegate = self
-        self.view.addSubview(scrollView)
+        scrollView.scrollsToTop = false
     }
     
     func configureCenterLayout() {
-        centerLayout = UIView(frame: CGRect(x: 0, y: 0, width: 4010, height: 4010))
-        scrollView.addSubview(centerLayout)
+        centerLayout.frame = CGRect(x: 0, y: 0, width: 5020, height: 5020)
         scrollView.centerView = centerLayout
         scrollView.contentSize = centerLayout.bounds.size
     }
     
     func configureMindView() {
-        mindView = TSMindView(frame: CGRect(x: 0, y: 0, width: 4000, height: 4000))
+        mindView.frame = CGRect(x: 0, y: 0, width: 5000, height: 5000)
         mindView.delegate = self
-        mindView.backgroundColor = UIColor.clear
-        centerLayout.addSubview(mindView)
     }
     
     func configureOperationButtonView() {
         var frame = self.operationButtonView.frame
         frame.origin.y = self.view.frame.size.height
         self.operationButtonView.frame = frame
-        self.view.bringSubviewToFront(self.operationButtonView)
+    }
+    
+    func configureBarButtons() {
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: "⍚".sf_image(with: UIFont.systemFont(ofSize: 27), textColor: UIColor.black), style: .plain, target: nil, action: nil)
     }
     
     override func viewDidLoad() {

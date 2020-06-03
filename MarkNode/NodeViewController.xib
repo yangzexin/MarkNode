@@ -14,9 +14,13 @@
             <connections>
                 <outlet property="addButton" destination="Zgq-fQ-VFI" id="4XD-Yl-6jk"/>
                 <outlet property="addToButton" destination="sBd-xO-EOC" id="Oiz-vC-uvX"/>
+                <outlet property="centerLayout" destination="Gv9-Xb-RYc" id="jci-T8-w2c"/>
                 <outlet property="deleteButton" destination="vr4-wP-Wh2" id="HA4-mK-gfv"/>
+                <outlet property="displaySelectorView" destination="lXa-0h-cIu" id="TwG-kW-J7p"/>
                 <outlet property="editButton" destination="aC5-8a-lvu" id="2U1-vS-R3L"/>
+                <outlet property="mindView" destination="B7Q-bV-ZFV" id="GTx-5j-GhM"/>
                 <outlet property="operationButtonView" destination="2Jg-fm-wXT" id="V0o-Ga-au4"/>
+                <outlet property="scrollView" destination="ndK-uQ-Vxf" id="7yN-Nl-55X"/>
                 <outlet property="view" destination="iN0-l3-epB" id="367-UB-4tz"/>
             </connections>
         </placeholder>
@@ -25,16 +29,36 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Jg-fm-wXT">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" alwaysBounceHorizontal="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ndK-uQ-Vxf" customClass="TSScrollView">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gv9-Xb-RYc">
+                            <rect key="frame" x="60" y="200" width="300" height="300"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B7Q-bV-ZFV" customClass="TSMindView">
+                                    <rect key="frame" x="30" y="86" width="240" height="128"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
+                    </subviews>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="Dgc-QK-lKg"/>
+                    </connections>
+                </scrollView>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Jg-fm-wXT" customClass="SFCenterLayout">
                     <rect key="frame" x="0.0" y="806" width="414" height="70"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <subviews>
                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QtT-OZ-Exn" customClass="SFDivideLayout">
                             <rect key="frame" x="10" y="0.0" width="394" height="50"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aC5-8a-lvu" customClass="SFBlockedButton">
-                                    <rect key="frame" x="0.0" y="0.0" width="80" height="50"/>
+                                    <rect key="frame" x="20" y="0.0" width="80" height="50"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <state key="normal" title="⌂"/>
@@ -46,7 +70,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </button>
                                 <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vr4-wP-Wh2" customClass="SFBlockedButton">
-                                    <rect key="frame" x="80" y="0.0" width="80" height="50"/>
+                                    <rect key="frame" x="110" y="0.0" width="80" height="50"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
                                     <color key="backgroundColor" red="1" green="0.029555204169999998" blue="0.034465862260000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <state key="normal" title="✕"/>
@@ -58,10 +82,10 @@
                                     </userDefinedRuntimeAttributes>
                                 </button>
                                 <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sBd-xO-EOC" customClass="SFBlockedButton">
-                                    <rect key="frame" x="160" y="0.0" width="80" height="50"/>
+                                    <rect key="frame" x="200" y="0.0" width="80" height="50"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <state key="normal" title="→"/>
+                                    <state key="normal" title="✚"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="boolean" keyPath="round" value="YES"/>
                                         <userDefinedRuntimeAttribute type="number" keyPath="roundSize">
@@ -70,7 +94,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </button>
                                 <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zgq-fQ-VFI" customClass="SFBlockedButton">
-                                    <rect key="frame" x="240" y="0.0" width="80" height="50"/>
+                                    <rect key="frame" x="290" y="0.0" width="80" height="50"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <state key="normal" title="↓"/>
@@ -90,9 +114,14 @@
                         </view>
                     </subviews>
                 </view>
+                <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lXa-0h-cIu" customClass="DisplaySelectorView" customModule="MarkNode" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="-577" y="16"/>
         </view>
     </objects>
 </document>

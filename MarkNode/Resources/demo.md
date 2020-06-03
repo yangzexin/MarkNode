@@ -1,7 +1,7 @@
-## MarkNode
+## Intro
 <!-- !ATTRIBUTE: style=conn-view-attr: lineWidth=2; -->
 ### 功能列表
-<!-- !ATTRIBUTE: style=conn-view-class: TSSimpleConnectionView; conn-view-attr: fillColor=255,95,0; conn-view-attr: fillWidth=10; conn-view-attr: lineWidth=0; -->
+<!-- !ATTRIBUTE: style=conn-view-class: TSSimpleConnectionView; conn-view-attr: fillColor=255,95,0; conn-view-attr: fillWidth=4; conn-view-attr: lineWidth=0; -->
 #### 思维导图
 ##### 新增、删除、拖动节点
 ##### 文本编辑

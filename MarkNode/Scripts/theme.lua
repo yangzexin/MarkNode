@@ -64,12 +64,16 @@ function layout_as_readable(node)
 
     layout_calculate_size(layout_results, node, true)
     local result = layout_results[1]
-    layout_readable_set_position(result, (node.layoutWidth) / 2, 200)
+    local max = {}
+    local centerX = node.layoutWidth / 2
+    max.right = centerX
+    layout_readable_set_position(result, centerX, 400, max)
+    result.allWidth = max.right - centerX
 
     return layout_results
 end
 
-function layout_readable_set_position(result, x, y)
+function layout_readable_set_position(result, x, y, max)
     result.x = x
     result.y = y
     result.displayX = 0
@@ -84,9 +88,13 @@ function layout_readable_set_position(result, x, y)
     if result.subnodes ~= nil then
         local startX = x + 20
         for _, subResult in ipairs(result.subnodes) do
-            local h = layout_readable_set_position(subResult, startX, startY)
+            local h = layout_readable_set_position(subResult, startX, startY, max)
             startY = startY + h
         end
+    end
+    result.height = startY - y
+    if result.x + result.width > max.right then
+        max.right = result.x + result.width
     end
     return startY - y
 end
@@ -97,7 +105,7 @@ function layout_as_tree(node)
 
     layout_calculate_size(layout_results, node, true)
     local result = layout_results[1]
-    layout_as_tree_set_position(result, (node.layoutWidth - result.allWidth) / 2, (result.allWidth - result.width) / 2, 200)
+    layout_as_tree_set_position(result, (node.layoutWidth - result.allWidth) / 2, (result.allWidth - result.width) / 2, (node.layoutHeight - result.subHeight) / 2)
 
     return layout_results
 end
@@ -355,4 +363,8 @@ function get_node_style(node, display_level, layouterName)
     theme.subnodes = subnodes
 
     return theme
+end
+
+function supportStyle()
+    return 1
 end

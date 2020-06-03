@@ -14,8 +14,9 @@ class NodeService: NSObject, NodeServiceType {
     func list() -> Observable<Result<[Node], Error>> {
         return Observable.create { observer -> Disposable in
             var nodes = [Node]()
-            nodes.append(Node(title: "demo", storeType: .bundle, path: "demo.md"))
-            nodes.append(Node(title: "about", storeType: .remote, path: "http://chemagui.com:8000/about.md"))
+            nodes.append(Node(title: "demo.md", storeType: .bundle, path: "demo.md"))
+            nodes.append(Node(title: "about.md", storeType: .remote, path: "http://chemagui.com:8000/about.md"))
+            nodes.append(Node(title: "running-lean.md", storeType: .remote, path: "http://chemagui.com:8000/running-lean.md"))
             observer.onNext(Result<[Node], Error>.success(nodes))
             observer.onCompleted()
             

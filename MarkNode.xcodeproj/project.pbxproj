@@ -44,6 +44,14 @@
 		3E1ED2B92483896100FD2643 /* NodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E1ED2B82483896100FD2643 /* NodeViewController.xib */; };
 		3E1ED2D9248518F600FD2643 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1ED2D8248518F600FD2643 /* String+Ext.swift */; };
 		3E1ED2F42485E4B500FD2643 /* MarkNodeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0693E32482060B00CD9C7B /* MarkNodeUITests.swift */; };
+		3E4FCD6524863D610067DF62 /* DisplaySelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4FCD6424863D610067DF62 /* DisplaySelectorView.swift */; };
+		3E4FCD7224863DE60067DF62 /* DisplaySelectorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E4FCD7124863DE60067DF62 /* DisplaySelectorView.xib */; };
+		3E4FCD752486573E0067DF62 /* StyleSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4FCD742486573E0067DF62 /* StyleSelectorView.swift */; };
+		3E4FCD772486579D0067DF62 /* StyleSelectorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E4FCD762486579D0067DF62 /* StyleSelectorView.xib */; };
+		3E4FCD7924865A4A0067DF62 /* LayoutSelectorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E4FCD7824865A4A0067DF62 /* LayoutSelectorView.xib */; };
+		3E4FCD7B24865A5D0067DF62 /* LayoutSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4FCD7A24865A5D0067DF62 /* LayoutSelectorView.swift */; };
+		3E4FCD7F2487421D0067DF62 /* TSMindView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4FCD7E2487421D0067DF62 /* TSMindView+Rx.swift */; };
+		3E4FCD8B248780FF0067DF62 /* MarkDownReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4FCD8A248780FF0067DF62 /* MarkDownReaderTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -190,6 +198,14 @@
 		3E1ED2E52485561E00FD2643 /* libMMLuaBridge.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libMMLuaBridge.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E1ED2E72485561E00FD2643 /* libSFFoundation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libSFFoundation.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E1ED2E92485561E00FD2643 /* libSFiOSKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libSFiOSKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E4FCD6424863D610067DF62 /* DisplaySelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplaySelectorView.swift; sourceTree = "<group>"; };
+		3E4FCD7124863DE60067DF62 /* DisplaySelectorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DisplaySelectorView.xib; sourceTree = "<group>"; };
+		3E4FCD742486573E0067DF62 /* StyleSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleSelectorView.swift; sourceTree = "<group>"; };
+		3E4FCD762486579D0067DF62 /* StyleSelectorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StyleSelectorView.xib; sourceTree = "<group>"; };
+		3E4FCD7824865A4A0067DF62 /* LayoutSelectorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LayoutSelectorView.xib; sourceTree = "<group>"; };
+		3E4FCD7A24865A5D0067DF62 /* LayoutSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutSelectorView.swift; sourceTree = "<group>"; };
+		3E4FCD7E2487421D0067DF62 /* TSMindView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TSMindView+Rx.swift"; sourceTree = "<group>"; };
+		3E4FCD8A248780FF0067DF62 /* MarkDownReaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkDownReaderTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -270,6 +286,7 @@
 			isa = PBXGroup;
 			children = (
 				3E0693D82482060B00CD9C7B /* MarkNodeTests.swift */,
+				3E4FCD8A248780FF0067DF62 /* MarkDownReaderTests.swift */,
 				3E0693DA2482060B00CD9C7B /* Info.plist */,
 			);
 			path = MarkNodeTests;
@@ -374,6 +391,7 @@
 		3E06944C24821C4400CD9C7B /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				3E4FCD7C248737820067DF62 /* View */,
 				3E0694202482125B00CD9C7B /* NodeViewController.swift */,
 				3E0694A0248283A100CD9C7B /* NodeViewModel.swift */,
 				3E1ED2B82483896100FD2643 /* NodeViewController.xib */,
@@ -389,6 +407,7 @@
 				3E06945224821CAF00CD9C7B /* BaseViewController.swift */,
 				3E069470248221B700CD9C7B /* BindableType.swift */,
 				3E1ED2D8248518F600FD2643 /* String+Ext.swift */,
+				3E4FCD7E2487421D0067DF62 /* TSMindView+Rx.swift */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -438,6 +457,19 @@
 				3E06949C2482830600CD9C7B /* SceneCoordinator.swift */,
 			);
 			name = Coodinator;
+			sourceTree = "<group>";
+		};
+		3E4FCD7C248737820067DF62 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3E4FCD6424863D610067DF62 /* DisplaySelectorView.swift */,
+				3E4FCD7124863DE60067DF62 /* DisplaySelectorView.xib */,
+				3E4FCD742486573E0067DF62 /* StyleSelectorView.swift */,
+				3E4FCD762486579D0067DF62 /* StyleSelectorView.xib */,
+				3E4FCD7A24865A5D0067DF62 /* LayoutSelectorView.swift */,
+				3E4FCD7824865A4A0067DF62 /* LayoutSelectorView.xib */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -641,11 +673,14 @@
 				3E1ED2B92483896100FD2643 /* NodeViewController.xib in Resources */,
 				3E0693CE2482060B00CD9C7B /* LaunchScreen.storyboard in Resources */,
 				3E0693CB2482060B00CD9C7B /* Assets.xcassets in Resources */,
+				3E4FCD7224863DE60067DF62 /* DisplaySelectorView.xib in Resources */,
 				3E06941D24820E4400CD9C7B /* theme.lua in Resources */,
 				3E0693C92482060600CD9C7B /* Main.storyboard in Resources */,
 				3E06940B24820E1D00CD9C7B /* demo.md in Resources */,
 				3E06941924820E3A00CD9C7B /* stringext.lua in Resources */,
+				3E4FCD7924865A4A0067DF62 /* LayoutSelectorView.xib in Resources */,
 				3E06946524821F5B00CD9C7B /* NodeCell.xib in Resources */,
+				3E4FCD772486579D0067DF62 /* StyleSelectorView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -673,10 +708,14 @@
 				3E0694A1248283A100CD9C7B /* NodeViewModel.swift in Sources */,
 				3E06945824821E3900CD9C7B /* NodesViewModel.swift in Sources */,
 				3E069476248224A300CD9C7B /* NodeServiceType.swift in Sources */,
+				3E4FCD752486573E0067DF62 /* StyleSelectorView.swift in Sources */,
 				3E1ED2D9248518F600FD2643 /* String+Ext.swift in Sources */,
+				3E4FCD6524863D610067DF62 /* DisplaySelectorView.swift in Sources */,
 				3E06945324821CAF00CD9C7B /* BaseViewController.swift in Sources */,
 				3E06947F2482256500CD9C7B /* NodeService.swift in Sources */,
 				3E069499248282BA00CD9C7B /* Scene.swift in Sources */,
+				3E4FCD7F2487421D0067DF62 /* TSMindView+Rx.swift in Sources */,
+				3E4FCD7B24865A5D0067DF62 /* LayoutSelectorView.swift in Sources */,
 				3E06946D2482214600CD9C7B /* RxExt.swift in Sources */,
 				3E06948324824FA800CD9C7B /* Node.swift in Sources */,
 				3E0693C62482060600CD9C7B /* NodesViewController.swift in Sources */,
@@ -695,6 +734,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E0693D92482060B00CD9C7B /* MarkNodeTests.swift in Sources */,
+				3E4FCD8B248780FF0067DF62 /* MarkDownReaderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -931,7 +971,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.chemagui.MarkNodeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "MarkNode/MarkNode-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MarkNode.app/MarkNode";
@@ -960,7 +1000,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.chemagui.MarkNodeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "MarkNode/MarkNode-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MarkNode.app/MarkNode";
@@ -987,7 +1027,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.chemagui.MarkNodeUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "MarkNode/MarkNode-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = MarkNode;
@@ -1014,7 +1054,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.chemagui.MarkNodeUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "MarkNode/MarkNode-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = MarkNode;
