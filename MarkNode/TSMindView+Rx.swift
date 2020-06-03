@@ -63,7 +63,7 @@ extension Reactive where Base: TSMindView {
         return ControlEvent(events: source)
     }
     
-    public var didUpdateSize: ControlEvent<CGSize> {
-        return ControlEvent(events: delegate.methodInvoked(#selector(TSMindViewDelegate.mindView(_:didUpdate:))).map { args in args[1] as! CGSize })
+    public var didUpdateSize: ControlEvent<TSUpdateSizeHandle> {
+        return ControlEvent(events: delegate.methodInvoked(#selector(TSMindViewDelegate.mindView(_:didUpdateSize:))).map { args in args[1] as! TSUpdateSizeHandle })
     }
 }

@@ -211,11 +211,9 @@ class NodeViewModel: NodeViewModelType, NodeViewModelInput, NodeViewModelOutput 
             switch e {
             case .next:
                 guard let self = self else { return }
-                self.loading.onNext(true)
                 self.node.onNext(self.rootNode)
                 self.scrollToShowNodeAtCenter.onNext(self.rootNode)
                 DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + DispatchTimeInterval.milliseconds(500), execute: {
-                    self.loading.onNext(false)
                 })
                 break
             default:

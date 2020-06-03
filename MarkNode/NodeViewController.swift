@@ -233,21 +233,9 @@ class NodeViewController: BaseViewController, UIScrollViewDelegate, TSMindViewDe
             .bind(to: self.scrollView.rx.contentOffset)
             .disposed(by: disposeBag)
         mindView.rx.didUpdateSize
-            .flatMap { size -> Observable<CGSize> in
-                if try output.loading.value() {
-                    return Observable.create { observer in
-                        DispatchQueue.main.async {
-                            //SFToast.toast(withText: "Resizing", hideAfterSeconds: 1.0, identifier: "ID_resizingMSG")
-                            observer.onNext(size)
-                            observer.onCompleted()
-                        }
-                        return Disposables.create{}
-                    }
-                }
-                return .just(size)
-            }
-            .flatMap { [weak self] size -> Observable<Void> in
-                guard let self = self else { return .empty() }
+            .bind { [weak self] handle in
+                guard let self = self else { return }
+                let size = handle.size
                 var frame = self.centerLayout.frame;
                 let containerSize = CGSize(width: size.width + 1000, height: size.height + 1000);
                 frame.size = containerSize;
@@ -258,10 +246,8 @@ class NodeViewController: BaseViewController, UIScrollViewDelegate, TSMindViewDe
                 self.mindView.frame = frame;
                 
                 self.scrollView.contentSize = containerSize;
-                
-                return .just(())
+                handle.didUpdate = true
             }
-            .bind(to: input.refreshAction)
             .disposed(by: disposeBag)
         
         output.uiRegistries.bind { uiRegistries in
