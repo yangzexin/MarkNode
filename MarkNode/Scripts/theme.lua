@@ -318,7 +318,7 @@ function get_node_style(node, display_level, layouterName)
     end
     theme.connection_view_class_name = 'TSScriptConnectionView'
     theme.padding = node_padding
-    theme.alignment = 'left'
+    theme.alignment = 'center'
     local attrs = {}
     theme.connection_view_attrs = attrs
     attrs.engineId = __runner_id -- 使用当前引擎执行绘制连接线
