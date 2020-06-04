@@ -15,6 +15,7 @@ protocol NodeViewModelInput {
     var addAsNextSibAction: AnyObserver<TSNode> { get }
     var deleteNodeAction: AnyObserver<TSNode> { get }
     var loadNodeAction: AnyObserver<Node> { get }
+    var openNodeAction: AnyObserver<Node> { get }
     var selectLastSelectedNodeAction: AnyObserver<Void> { get }
     var selectStyleAction: AnyObserver<TSMindViewStyle> { get }
     var selectLayouterAction: AnyObserver<TSLayouterProtocol> { get }
@@ -64,7 +65,8 @@ class NodeViewModel: NodeViewModelType, NodeViewModelInput, NodeViewModelOutput 
     
     var disposeBag = DisposeBag()
     
-    var service: NodeServiceType
+    let service: NodeServiceType
+    let sceneCoordinator: SceneCoordinatorType
     
     lazy var selectNodeAction: AnyObserver<TSNode?> = {
         AnyObserver<TSNode?> { [weak self] e in
@@ -179,6 +181,18 @@ class NodeViewModel: NodeViewModelType, NodeViewModelInput, NodeViewModelOutput 
         }
     }()
     
+    lazy var openNodeAction: AnyObserver<Node> = {
+        AnyObserver<Node> { [weak self] e in
+            switch e {
+            case .next(let node):
+                guard let self = self else { return }
+                self.sceneCoordinator.transition(to: Scene.detail(NodeViewModel(node)))
+            default:
+                break
+            }
+        }
+    }()
+    
     lazy var selectStyleAction: AnyObserver<TSMindViewStyle> = {
         AnyObserver<TSMindViewStyle> { [weak self] e in
             guard let self = self else { return }
@@ -222,8 +236,9 @@ class NodeViewModel: NodeViewModelType, NodeViewModelInput, NodeViewModelOutput 
         }
     }()
     
-    init(_ node_: Node, service: NodeServiceType = NodeService()) {
+    init(_ node_: Node, service: NodeServiceType = NodeService(), sceneCoordinator: SceneCoordinatorType = SceneCoordinator.shared) {
         self.service = service
+        self.sceneCoordinator = sceneCoordinator
         title = BehaviorSubject<String>(value: node_.title)
         uiRegistries = .just(TSUIRegistries.shared())
         

@@ -67,7 +67,7 @@ class NodeViewController: BaseViewController, UIScrollViewDelegate, TSMindViewDe
                     return Disposables.create {}
                 })
             }
-            .bind(to: input.loadNodeAction)
+            .bind(to: input.openNodeAction)
             .disposed(by: disposeBag)
         output.selectedNode
             .flatMap { node -> Observable<Bool> in
