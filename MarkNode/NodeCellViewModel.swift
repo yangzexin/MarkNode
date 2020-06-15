@@ -38,7 +38,8 @@ final class NodeCellViewModel: NodeCellViewModelType, NodeCellViewModelInput, No
         image = node.flatMap { node -> Observable<UIImage> in
             switch node.storeType {
             case .bundle:
-                return .just("🏷".sf_image(with: UIFont.systemFont(ofSize: 40), textColor: UIColor.black))
+                let iconImage = "🏷".sf_image(with: UIFont.systemFont(ofSize: 40), textColor: UIColor.black)
+                return .just(iconImage!)
             case .remote:
                 return .just("☁️".sf_image(with: UIFont.systemFont(ofSize: 40), textColor: UIColor.black))
             }
